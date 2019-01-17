@@ -1,0 +1,115 @@
+<! DOCTYPE html>
+<html lang="en">
+	<head>
+	<meta charset="utf-8">
+	<title>Validation</title>
+	<script type="text/javascript">
+	 var num,num1,num2;
+	 
+	function Name()
+    {
+	  document.getElementById("messageName").innerHTML = " ";
+    }
+    function Age()
+    {
+	  document.getElementById("messageAge").innerHTML = " ";
+    }
+    function Email()
+    {
+	 document.getElementById("messageEmail").innerHTML = " ";
+    }
+
+	function check()
+	   { 
+	   
+	      num =document.getElementById("txtName").value;
+		  num1 =document.getElementById("txtAge").value;
+		  num2 = document.getElementById("email").value;
+		 
+		  
+		  if((num=="" ) && (num1=="") && (num2==""))
+	      {
+		     document.getElementById("messageName").innerHTML = " please enter name ";
+			 document.getElementById("messageAge").innerHTML = " please enter Age ";
+			 document.getElementById("messageEmail").innerHTML = " please enter Email";
+			
+		 	 return false;
+       	  }
+       	  
+	      else
+		  {
+		      if(num.match(/([a-zA-Z])$/g))
+              {
+	            if(num1.match(/([0-9])$/g))
+                {
+                  if(num2.match(/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/))
+                  {
+				       document.write(num+"</br>");
+					    document.write(num1+"</br>");
+	                   document.write(num2+"</br>");
+					   return True;
+	              }	
+	              else
+	              {    
+ 
+                    
+	                    // alert("Email section doesn't exist!!!!!!");
+						document.getElementById("messageEmail").innerHTML = " please enter Email";
+						return false;
+	              }
+	            }	
+	            else
+	            {
+				  if(num1.match(/([a-zA-Z])$/g))
+				  {
+				    alert("Age section does not allowed character");
+					return false;
+				  }
+				  else
+				  {  
+				     document.getElementById("messageAge").innerHTML = " please enter Age2222 ";   
+					 
+					 return false;
+				  }
+	               
+				}
+		      }	
+	          else
+	          {
+			     if(num.match(/([0-9])$/g))
+				  {
+				    alert("Name section does not allowed Number");
+					return false;
+				  }
+				  else
+				  {  
+			        //alert("Name section does not allowed number");
+				    document.getElementById("messageName").innerHTML = " please enter name ";
+					return false;
+					
+				  }
+	          }
+		  }
+	     
+		} 
+	</script>
+	
+	
+	</head>
+	<body>
+
+		<form>
+		Name:  <input type="text"  id="txtName"  value="" onclick="Name()"/> <span id="messageName" style="font-size:12px;color:#FF0000;"></span></br></br>
+		
+		Age:&nbsp;&nbsp;&nbsp;&nbsp;<input type="text" id="txtAge"  value=""  onclick="Age()"/><span id="messageAge" style="font-size:12px;color:#FF0000;"></span></br></br>
+		
+	
+		Email: <input type="email"  id="email" placeholder="enter email here" value="" onclick="Email()" /><span id="messageEmail" style="font-size:12px;color:#FF0000;"></span></br></br>
+		
+		<input type="submit" name="Login" value="submit"  onclick="return check()"/>
+		</form>
+	</body>
+</html>
+
+
+	
